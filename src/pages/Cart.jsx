@@ -15,7 +15,7 @@ const KEY = 'pk_test_51MuzAULZirzeNvwx8ODCmGjN7tpZydDabvsj8u1CovXA58GqiSBlbDhGrw
 const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzFhY2U1ZGNmNmEzNzkwNmE3MjExMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4MDk3NzM2MiwiZXhwIjoxNjgxMjM2NTYyfQ.LhSOUTKsydOYmJ-ZIjOcwc0cP6mgKdQ0g43PjBrJqo0'
 
 const api = axios.create({
-	baseURL: "http://localhost:5000/api",
+	baseURL: "https://weedsbgone.onrender.com/api",
 	headers: { token: `Bearer ${TOKEN}`}
 })
 
