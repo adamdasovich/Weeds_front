@@ -3,7 +3,7 @@ import { loginStart, loginSuccess, loginFailure } from './userRedux';
 import axios from 'axios';
 
 const api = axios.create({
-	baseURL: 'http://localhost:5000.com',
+	baseURL: process.env.REACT_APP_SERVER_URL,
 });
 
 export const login = async (dispatch, user) => {

@@ -13,7 +13,7 @@ import { addProduct } from "../redux/cartRedux"
 import { useDispatch } from "react-redux"
 
 const api = axios.create({
-	baseURL: "http://localhost:5000/api",
+	baseURL: process.env.REACT_APP_SERVER_URL,
 });
 
 const Container = styled.div`
