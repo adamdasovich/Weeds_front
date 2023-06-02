@@ -5,7 +5,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 
 const api = axios.create({
-	baseURL: "https://weedsbgone.onrender.com/api",
+	baseURL: "http://localhost:5000/api",
 });
 
 const Container = styled.div`

@@ -13,7 +13,7 @@ import { addProduct } from "../redux/cartRedux"
 import { useDispatch } from "react-redux"
 
 const api = axios.create({
-	baseURL: "https://weedsbgone.onrender.com/api",
+	baseURL: "http://localhost:5000/api",
 });
 
 const Container = styled.div`

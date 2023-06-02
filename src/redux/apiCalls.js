@@ -3,7 +3,7 @@ import { loginStart, loginSuccess, loginFailure } from './userRedux';
 import axios from 'axios';
 
 const api = axios.create({
-	baseURL: 'https://weedsbgone.onrender.com',
+	baseURL: 'http://localhost:5000.com',
 });
 
 export const login = async (dispatch, user) => {
