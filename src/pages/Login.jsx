@@ -54,8 +54,9 @@ const Button = styled.button`
   border-radius: 5px;
   cursor: pointer;
   margin: 20px 0;
-  &:hover {
-	background-color: orange;
+  &:disabled {
+	color: orange;
+	cursor: not-allowed;
 	  }
 `
 
@@ -65,23 +66,24 @@ const Link = styled.a`
   text-decoration: underline;
   cursor: pointer;
 `
+
 const Error = styled.span`
   color: red;
-  font-size: 12px;
 `
 
-const Login = () => {
-	const [userName, setUserName] = useState('')
-	const [password, setPassword] = useState('')
-	const dispatch = useDispatch()
-	const { isFetching, error } = useSelector(state => state.user)
-	
 
-const handleClick = (e) => {
-	e.preventDefault()
-	login(dispatch, { userName, password })
+const Login = () => {
+	const [username, setUsername] = useState("")
+	const [password, setPassword] = useState("")
+
+	const { isFetching, error } = useSelector(state => state.user)
+
+	const dispatch = useDispatch()
+
+	const handleClick = (e) => {
+		e.preventDefault()
+		login(dispatch, {username, password})
 	}
-	console.log(userName, password)
 
   return (
 	<Container>
@@ -89,18 +91,18 @@ const handleClick = (e) => {
 			<Title>SIGN IN</Title>
 			<Form>
 				<Input 
-					placeholder="username" 
-					onChange={e => setUserName(e.target.value)} />
+					placeholder="username"
+					onChange={e => setUsername(e.target.value)} 
+				/>
 				<Input 
-					placeholder="password" 
-					onChange={e => setPassword(e.target.value)} />
+					placeholder="password"
+					onChange={e => setPassword(e.target.value)} 
+				/>
 				<Button
 					onClick={handleClick}
-					disabled={isFetching}					
-				>
-					LOGIN
-				</Button>
-				{error && <Error>Something is messed up.</Error>}
+					disabled={isFetching}
+				>LOGIN</Button>
+				{error && <Error>Something went wrong</Error>}
 				<Link>DID YOU FORGET YOUR PASSWORD DUMB ASS?</Link>
 				<Link>CREATE A NEW ACCOUNT</Link>
 			</Form>

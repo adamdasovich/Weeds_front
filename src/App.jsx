@@ -9,8 +9,10 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import { useSelector } from 'react-redux'
 
 
+
 const App = () => {
-	const user = false //useSelector(state => state.user.currentUser);
+	const user = useSelector(state => state.user.currentUser);
+	console.log(user)
   return (	
 	<Router>
 		<Routes>

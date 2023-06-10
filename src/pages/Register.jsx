@@ -1,5 +1,6 @@
 import styled from "styled-components"
-
+import { useState } from "react"
+import { register } from '../redux/apiCalls'
 
 const Container = styled.div`
   width: 100vw;
@@ -66,20 +67,44 @@ const Button = styled.button`
   &:hover {
 	background-color: orange;
 	  }
-
 `
 
+const Link = styled.a`
+  margin: 5px 0;
+  font-size: 12px;
+  text-decoration: underline;
+`
+
+
+
 const Register = () => {
+	const [username, setUsername] = useState("")
+	const [password, setPassword] = useState("")
+	const [email, setEmail] = useState("")
+
+	const handleClick = (e) => {
+		e.preventDefault()
+		const user = {username, email, password}
+		register(user)
+	}		
+
   return (
 	<Container>
 		<Wrapper>
 			<Title>CREATE AN ACCOUNT</Title>
 			<Form>
-				<Input placeholder="name" />
-				<Input placeholder="last name" />
-				<Input placeholder="username" />
-				<Input placeholder="email" />
-				<Input placeholder="password" />
+				<Input 
+					placeholder="username" 
+					onChange={e => setUsername(e.target.value)}
+				/>
+				<Input 
+					placeholder="email" 
+					onChange={e => setEmail(e.target.value)}
+				/>
+				<Input 
+					placeholder="password" 
+					onChange={e => setPassword(e.target.value)}
+				/>
 				<Input placeholder="confirm password" />
 				<Agreement>
 					<Checkbox type="checkbox" />
@@ -88,7 +113,11 @@ const Register = () => {
 						data in accordance with the <b>PRIVACY POLICY</b>
 					</Desc>
 				</Agreement>
-				<Button>CREATE</Button>
+				<Button
+					onClick={handleClick}
+				>CREATE</Button>
+				
+				<Link>DID YOU FORGET YOUR NAME DUMB ASS?</Link>
 			</Form>
 		</Wrapper>
 	</Container>
@@ -96,3 +125,5 @@ const Register = () => {
 }
 
 export default Register
+
+

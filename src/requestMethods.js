@@ -1,14 +1,14 @@
 import axios from 'axios';
 
-
-const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzFhY2U1ZGNmNmEzNzkwNmE3MjExMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4MDk3NzM2MiwiZXhwIjoxNjgxMjM2NTYyfQ.LhSOUTKsydOYmJ-ZIjOcwc0cP6mgKdQ0g43PjBrJqo0'
+const BASE_URL = process.env.REACT_APP_SERVER_URL;
+const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0ODFmNmE2ZGVlZTliY2M0YTQ5OWE0YyIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4NjI0MzU3NiwiZXhwIjoxNjg3MTA3NTc2fQ.ZpzZXpvDMg8GrU43zB2og098RTilnDloZ00ORbUcw2s'
 
 export const publicRequest = axios.create({
-	baseURL: process.env.REACT_APP_SERVER_URL,
+	baseURL: BASE_URL,
 });
 
 export const userRequest = axios.create({
-	baseURL: process.env.REACT_APP_SERVER_URL,
+	baseURL: BASE_URL,
 	headers: { token: `Bearer ${TOKEN}` }
 });
 

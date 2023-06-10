@@ -1,18 +1,26 @@
 import { loginStart, loginSuccess, loginFailure } from './userRedux';
-//import { publicRequest } from '../requestMethods';
-import axios from 'axios';
+import { publicRequest } from '../requestMethods';
 
-const api = axios.create({
-	baseURL: process.env.REACT_APP_SERVER_URL,
-});
 
 export const login = async (dispatch, user) => {
 	dispatch(loginStart());
 	try {
-		const res = await api.post('/auth/login', user);
+		const res = await publicRequest.post('/auth/login', user);
 		dispatch(loginSuccess(res.data));
+
 
 	} catch (err) {
 		dispatch(loginFailure());
+	}
+}
+
+export const register = async (user) => {
+	try {
+		const res = await publicRequest.post('/auth/register', user);
+		console.log(res.data);
+		return res.data;
+
+	} catch (err) {
+		console.log(err);
 	}
 }
