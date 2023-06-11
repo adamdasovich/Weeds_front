@@ -26,14 +26,16 @@ const Products = ({cat, filters}) => {
 				const catState = cat 
 				? `/products?category=${cat}` 
 				: '/products'
-				const res = await api.get(catState)		
+				const res = await api.get(catState)
 				setProducts(res.data)
+				console.log(res.data[0].title)
 			} catch (err) {
 				console.log(err)
 			}
 		}
 		getProducts()
 	}, [cat])
+	console.log(products)
 
 	useEffect(() => {
 		cat &&	
@@ -50,10 +52,10 @@ const Products = ({cat, filters}) => {
   return (
 	<Container>
 		{cat 
-			? filteredProducts.map((item) => <Product item={item} key={item.id} />)
+			? filteredProducts.map((item) => <Product item={item} key={item._id} />)
 		 	: products
 				.slice(0,8)
-				.map((item) => <Product item={item} key={item.id} />)}
+				.map((item) => <Product item={item} key={item._id} />)}
 	</Container>
   )
 }
