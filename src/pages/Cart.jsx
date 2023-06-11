@@ -10,6 +10,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { userRequest } from "../requestMethods";
 import { useNavigate } from 'react-router-dom'
+import uuid from 'react-uuid'
 
 const KEY = 'pk_test_51MuzAULZirzeNvwx8ODCmGjN7tpZydDabvsj8u1CovXA58GqiSBlbDhGrwJKqU0Q9tLVLfBJ271CPsJUjyugkIhM00vhWc8zMi'
 const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MzFhY2U1ZGNmNmEzNzkwNmE3MjExMSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY4MDk3NzM2MiwiZXhwIjoxNjgxMjM2NTYyfQ.LhSOUTKsydOYmJ-ZIjOcwc0cP6mgKdQ0g43PjBrJqo0'
@@ -212,7 +213,7 @@ const Cart = () => {
 			<Bottom>
 				<Info>
 				{cart.products.map((product) => (
-					<Product item={product} key={product._id}>
+					<Product item={product} key={uuid()}>
 						<ProductDetail>
 							<Image src={product.img} />
 							<Details>
