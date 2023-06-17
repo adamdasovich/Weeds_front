@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom'
 
 const Container = styled.div
 ` height: 60px;
+  background: lightyellow;
   ${mobile({ height: "50px" })};
 `
 
@@ -67,7 +68,7 @@ const MenuItem = styled.div`
 const Navbar = () => {
   const quantity = useSelector(state => state.cart.quantity)
   return (
-	<Container style={{background: 'lightGreen'}}>
+	<Container>
 		<Wrapper>
 			<Left>
 					<SearchContainer style={{background: 'white'}}>
