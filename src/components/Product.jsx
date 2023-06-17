@@ -41,7 +41,7 @@ const Circle = styled.div`
 	position: absolute;
 `
 const Image = styled.img`
-	border-radius: 50%;
+	border-radius: 10%;
 	height: 75%;
 	z-index: 2;
 	`
